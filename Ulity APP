@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int choice;
+    double value;
+    bool running = true;
+
+    while (running)
+    {
+        cout << "\n=== Unit Converter ===" << endl;
+        cout << "1. Celsius to Fahrenheit" << endl;
+        cout << "2. Kilometres to Miles" << endl;
+        cout << "3. Kilograms to Pounds" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 4)
+        {
+            running = false;
+        }
+        else
+        {
+            cout << "Enter value: ";
+            cin >> value;
+
+            if (choice == 1)
+            {
+                cout << value << " Celsius = "
+                     << (value * 9 / 5 + 32)
+                     << " Fahrenheit" << endl;
+            }
+            else if (choice == 2)
+            {
+                cout << value << " Kilometres = "
+                     << (value * 0.621371)
+                     << " Miles" << endl;
+            }
+            else if (choice == 3)
+            {
+                cout << value << " Kilograms = "
+                     << (value * 2.20462)
+                     << " Pounds" << endl;
+            }
+            else
+            {
+                cout << "Invalid choice." << endl;
+            }
+        }
+    }
+
+    cout << "Program ended." << endl;
+    return 0;
+}
