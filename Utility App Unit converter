@@ -3,9 +3,7 @@
 using namespace std;
 
 // --- CHAPTER 5: FUNCTIONS ---
-// I made these functions to handle the math calculations 
-// so the main part of the program stays clean.
-
+// Math logic separated into functions to keep main() clean
 double toFahrenheit(double celsius) {
     double result = (celsius * 9 / 5) + 32;
     return result;
@@ -25,13 +23,10 @@ int main() {
     double userInput = 0.0;
     bool isRunning = true;
 
-    // --- CHAPTER 3: WHILE LOOP ---
-    // This keeps the app running until the user wants to quit
+    // --- CHAPTER 3: ITERATION (WHILE LOOP) ---
     while (isRunning == true) {
         cout << "-----------------------------" << endl;
-        cout << "    UNIT CONVERTER APP 
-
-         " << endl;
+        cout << "      UNIT CONVERTER APP      " << endl;
         cout << "-----------------------------" << endl;
         cout << "1. Celsius to Fahrenheit" << endl;
         cout << "2. Kilometres to Miles" << endl;
@@ -40,7 +35,7 @@ int main() {
         cout << "Select an option: ";
         cin >> userChoice;
 
-        // --- CHAPTER 2: SELECTION ---
+        // --- CHAPTER 2: SELECTION (IF/ELSE) ---
         if (userChoice == 4) {
             isRunning = false; 
             cout << "Closing program..." << endl;
@@ -62,7 +57,7 @@ int main() {
             cout << "Result: " << toPounds(userInput) << " Lbs" << endl;
         } 
         else {
-            // Error handling for wrong numbers
+            // Error handling for invalid input
             cout << "Invalid choice, try again." << endl;
         }
     }
