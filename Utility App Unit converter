@@ -29,7 +29,8 @@ int main() {
     // This keeps the app running until the user wants to quit
     while (isRunning == true) {
         cout << "-----------------------------" << endl;
-        cout << "      MY UTILITY AP         " << endl;
+        cout << "      MY UTILITY APP Unit converter
+         " << endl;
         cout << "-----------------------------" << endl;
         cout << "1. Celsius to Fahrenheit" << endl;
         cout << "2. Kilometres to Miles" << endl;
