@@ -29,7 +29,7 @@ int main() {
     // This keeps the app running until the user wants to quit
     while (isRunning == true) {
         cout << "-----------------------------" << endl;
-        cout << "    UNIT CONVERTER APP  Unit converter
+        cout << "    UNIT CONVERTER APP 
 
          " << endl;
         cout << "-----------------------------" << endl;
