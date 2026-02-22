@@ -1,56 +1,69 @@
 #include <iostream>
+
 using namespace std;
 
-int main()
-{
-    int choice;
-    double value;
-    bool running = true;
+// --- CHAPTER 5: FUNCTIONS ---
+// I made these functions to handle the math calculations 
+// so the main part of the program stays clean.
 
-    while (running)
-    {
-        cout << "\n=== Unit Converter ===" << endl;
+double toFahrenheit(double celsius) {
+    double result = (celsius * 9 / 5) + 32;
+    return result;
+}
+
+double toMiles(double km) {
+    return km * 0.621371;
+}
+
+double toPounds(double kg) {
+    return kg * 2.20462;
+}
+
+int main() {
+    // --- CHAPTER 1: VARIABLES ---
+    int userChoice = 0;
+    double userInput = 0.0;
+    bool isRunning = true;
+
+    // --- CHAPTER 3: WHILE LOOP ---
+    // This keeps the app running until the user wants to quit
+    while (isRunning == true) {
+        cout << "-----------------------------" << endl;
+        cout << "      MY UTILITY APP         " << endl;
+        cout << "-----------------------------" << endl;
         cout << "1. Celsius to Fahrenheit" << endl;
         cout << "2. Kilometres to Miles" << endl;
         cout << "3. Kilograms to Pounds" << endl;
-        cout << "4. Exit" << endl;
-        cout << "Enter your choice: ";
-        cin >> choice;
+        cout << "4. Quit" << endl;
+        cout << "Select an option: ";
+        cin >> userChoice;
 
-        if (choice == 4)
-        {
-            running = false;
-        }
-        else
-        {
-            cout << "Enter value: ";
-            cin >> value;
-
-            if (choice == 1)
-            {
-                cout << value << " Celsius = "
-                     << (value * 9 / 5 + 32)
-                     << " Fahrenheit" << endl;
-            }
-            else if (choice == 2)
-            {
-                cout << value << " Kilometres = "
-                     << (value * 0.621371)
-                     << " Miles" << endl;
-            }
-            else if (choice == 3)
-            {
-                cout << value << " Kilograms = "
-                     << (value * 2.20462)
-                     << " Pounds" << endl;
-            }
-            else
-            {
-                cout << "Invalid choice." << endl;
-            }
+        // --- CHAPTER 2: SELECTION ---
+        if (userChoice == 4) {
+            isRunning = false; 
+            cout << "Closing program..." << endl;
+        } 
+        else if (userChoice == 1) {
+            cout << "Enter temperature in Celsius: ";
+            cin >> userInput;
+            // Calling the function from Chapter 5
+            cout << "Result: " << toFahrenheit(userInput) << " F" << endl;
+        } 
+        else if (userChoice == 2) {
+            cout << "Enter distance in KM: ";
+            cin >> userInput;
+            cout << "Result: " << toMiles(userInput) << " Miles" << endl;
+        } 
+        else if (userChoice == 3) {
+            cout << "Enter weight in KG: ";
+            cin >> userInput;
+            cout << "Result: " << toPounds(userInput) << " Lbs" << endl;
+        } 
+        else {
+            // Error handling for wrong numbers
+            cout << "Invalid choice, try again." << endl;
         }
     }
 
-    cout << "Program ended." << endl;
     return 0;
 }
