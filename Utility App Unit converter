@@ -1,64 +1,59 @@
 #include <iostream>
-
 using namespace std;
 
-// --- CHAPTER 5: FUNCTIONS ---
-// Math logic separated into functions to keep main() clean
-double toFahrenheit(double celsius) {
-    double result = (celsius * 9 / 5) + 32;
-    return result;
+void showMenu() {
+    cout << "\n--- Unit Converter ---\n";
+    cout << "1. Celsius to Fahrenheit\n";
+    cout << "2. Kilometres to Miles\n";
+    cout << "3. Kilograms to Pounds\n";
+    cout << "4. Exit\n";
+    cout << "Choose an option: ";
 }
 
-double toMiles(double km) {
-    return km * 0.621371;
+float celsiusToFahrenheit(float celsius) {
+    return (celsius * 9 / 5) + 32;
 }
 
-double toPounds(double kg) {
-    return kg * 2.20462;
+float kilometresToMiles(float kilometres) {
+    return kilometres * 0.621371;
+}
+
+float kilogramsToPounds(float kilograms) {
+    return kilograms * 2.20462;
 }
 
 int main() {
-    // --- CHAPTER 1: VARIABLES ---
-    int userChoice = 0;
-    double userInput = 0.0;
-    bool isRunning = true;
+    int choice = 0;
+    float value = 0;
+    float result = 0;
 
-    // --- CHAPTER 3: ITERATION (WHILE LOOP) ---
-    while (isRunning == true) {
-        cout << "-----------------------------" << endl;
-        cout << "      UNIT CONVERTER APP      " << endl;
-        cout << "-----------------------------" << endl;
-        cout << "1. Celsius to Fahrenheit" << endl;
-        cout << "2. Kilometres to Miles" << endl;
-        cout << "3. Kilograms to Pounds" << endl;
-        cout << "4. Quit" << endl;
-        cout << "Select an option: ";
-        cin >> userChoice;
+    while (choice != 4) {
+        showMenu();
+        cin >> choice;
 
-        // --- CHAPTER 2: SELECTION (IF/ELSE) ---
-        if (userChoice == 4) {
-            isRunning = false; 
-            cout << "Closing program..." << endl;
-        } 
-        else if (userChoice == 1) {
+        if (choice == 1) {
             cout << "Enter temperature in Celsius: ";
-            cin >> userInput;
-            // Calling the function from Chapter 5
-            cout << "Result: " << toFahrenheit(userInput) << " F" << endl;
-        } 
-        else if (userChoice == 2) {
-            cout << "Enter distance in KM: ";
-            cin >> userInput;
-            cout << "Result: " << toMiles(userInput) << " Miles" << endl;
-        } 
-        else if (userChoice == 3) {
-            cout << "Enter weight in KG: ";
-            cin >> userInput;
-            cout << "Result: " << toPounds(userInput) << " Lbs" << endl;
-        } 
-        else {
-            // Error handling for invalid input
-            cout << "Invalid choice, try again." << endl;
+            cin >> value;
+            result = celsiusToFahrenheit(value);
+            cout << value << " Celsius is " << result << " Fahrenheit.\n";
+
+        } else if (choice == 2) {
+            cout << "Enter distance in kilometres: ";
+            cin >> value;
+            result = kilometresToMiles(value);
+            cout << value << " kilometres is " << result << " miles.\n";
+
+        } else if (choice == 3) {
+            cout << "Enter weight in kilograms: ";
+            cin >> value;
+            result = kilogramsToPounds(value);
+            cout << value << " kilograms is " << result << " pounds.\n";
+
+        } else if (choice == 4) {
+            cout << "Thank you for using the Unit Converter. Goodbye!\n";
+
+        } else {
+            cout << "Invalid option. Please choose between 1 and 4.\n";
         }
     }
 
